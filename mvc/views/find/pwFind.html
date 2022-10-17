@@ -77,6 +77,16 @@
             font-size: 24px;
         }
 
+        #root > main > .text-box > .form-box > .text-id{
+            background-color: transparent;
+            border: none;
+            border-bottom: 1px solid #CCC;
+            width: 600px;
+            height: 50px;
+            margin-top: 50px;
+            font-size: 24px;
+        }
+
         #root > main > .text-box > .form-box > .text-email{
             background-color: transparent;
             border: none;
@@ -131,11 +141,12 @@
                 <img src="../../public/find/9983F3405BAF176612.png" alt="" class="main-img">
             </div>
             <div class="text-box">
-                <form action="/idFind" method="post" class="form-box">
+                <form action="/pwFind" method="post" class="form-box">
                     <input type="text" name="name" value="이름" class="text-name">
+                    <input type="text" name="id" value="아이디" class="text-id">
                     <input type="text" name="email" value="이메일 주소" class="text-email">
-                    <input type="submit" value="아이디 찾기" class="sbm">
-                    <a href="/pwFind">비밀번호 찾기 페이지</a>
+                    <input type="submit" value="비밀번호 찾기" class="sbm">
+                    <a href="/idFind">아이디 찾기 페이지</a>
                 </form>
             </div>
         </main>
