@@ -1,0 +1,138 @@
+/** 리셋 CSS*/
+* {
+	margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+/** li에 붙어있는 점 제거*/
+ul > li {
+	list-style:none;
+}
+/** width는 이미지 출력 크기 지정, margin은 위치 지정, position은 슬라이드 이동 클릭 버튼 위치조정*/
+.slidebox {
+	max-width:500px;
+  margin:0 auto;
+  position:relative;
+}
+/** white-space는 내부의 공백처리 방법을 나타내며 지정된 공간 외 데이터를 밖으로 내보낸다. 그리고 overflow를 통해 지정된 공간 외 데이터를 화면에 표시하지 않는다*/
+.slidebox .slidelist {
+	position:relative;
+  white-space:nowrap;
+  font-size:0;
+  overflow:hidden;
+}
+/** display : inline-block 내부의 이미지 정렬 -> inlineblock으로 가로정렬, white-space로 경계생성 overflow로 경계 외부의 데이터를 화면에서 숨김 */
+/** vertical-align = 크기가 남는 이미지의 사진들을 정렬*/
+/** transition = 슬라이드 이벤트에 딜레이를 부여, all= 전체, 1s = 1초*/
+.slidebox .slidelist .slideitem {
+	position:relative;
+  display:inline-block;
+  vertical-align:middle;
+  background-color:#fff;
+  width:100%;
+  transition:all 1s;
+}
+
+/*.slidebox .slidelist .slideitem > a {
+	display:block;
+  width:auto;
+  position:relative;
+}*/
+/** 지정된 크기에 까지 이미지를 맞춤(width기준)*/
+.slidebox .slidelist .slideitem > a img {
+	max-width:100%;
+}
+/** 컨트롤러(페이지를 넘기는 화살표 버튼)의 위치와 모양을 잡아줌*/
+/** position,top = 위치잡기(top의 경우 사용하지 않으면 화살표의 위치가 하단으로 내려간다, Bottom을 사용해도 됨)*/
+.slidebox .slide-control [class*="control"] label {
+	position:absolute;
+  z-index:10;
+  top:50%;
+  /*transform:translateY(-50%);*/
+  padding:20px;
+  border-radius:50%;
+  cursor:pointer;
+}
+
+.slidebox .slide-control [class*="control"] label.prev {
+	left:-50px;
+  background:#333 url('./img/left-arrow.png') center center / 50% no-repeat;
+}
+
+.slidebox .slide-control [class*="control"] label.next {
+	right:-50px;
+  background:#333 url('./img/right-arrow.png') center center / 50% no-repeat;
+}
+
+[name="slide"] {
+	display:none;
+}
+/** 기존의 이미지가 왼쪽으로 얼만큼 이동할지 정해주는 코드로 레프트 값을 바꾸면 이미지의 출력 순서가 변한다(ex. slide02와 slide03의 레프트 값이 서로 바뀌면 01 다음에 03, 02 순서로 출력된다)*/
+#slide01:checked ~ .slidelist .slideitem {
+	left:0;
+}
+
+#slide02:checked ~ .slidelist .slideitem {
+	left:-100%;
+}
+
+#slide03:checked ~ .slidelist .slideitem {
+	left:-200%;
+}
+
+#slide04:checked ~ .slidelist .slideitem {
+	left:-300%;
+}
+
+#slide05:checked ~ .slidelist .slideitem {
+	left:-400%;
+}
+
+#slide06:checked ~ .slidelist .slideitem {
+	left:-500%;
+}
+
+#slide07:checked ~ .slidelist .slideitem {
+	left:-600%;
+}
+
+#slide08:checked ~ .slidelist .slideitem {
+	left:-700%;
+}
+/** 다음 화면으로 전송이 되었을때 컨트롤러를 고정시켜 놓는다(없을경우 컨트롤러가 소실된다)*/
+/** 또한 기능적으로 다음 페이지로 넘어가도록 설계되어있어서 컨트롤러의 숫자가 변경되면 헤당 슬라이드의 컨트롤러 역할을 한다(slide 01에 control 01 대신 02를 삽입하면 02 컨트롤러의 역할을 진행함)*/
+.slide-control [class*="control"] {
+	display:none;
+}
+
+#slide01:checked ~ .slide-control .control01 {
+	display:block;
+}
+
+#slide02:checked ~ .slide-control .control02 {
+	display:block;
+}
+
+#slide03:checked ~ .slide-control .control03 {
+	display:block;
+}
+
+#slide04:checked ~ .slide-control .control04 {
+	display:block;
+}
+
+#slide05:checked ~ .slide-control .control05 {
+	display:block;
+}
+
+#slide06:checked ~ .slide-control .control06 {
+	display:block;
+}
+
+#slide07:checked ~ .slide-control .control07 {
+	display:block;
+}
+
+#slide08:checked ~ .slide-control .control08 {
+	display:block;
+}
