@@ -6,7 +6,7 @@
 body > #root {
   width: 1920px;
   height: 1080px;
-  background-image: url(../../public/main/MainPage.png);
+  background-image: url(MainPage.png);
 }
 
 #root > header{
