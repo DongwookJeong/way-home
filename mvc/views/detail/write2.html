@@ -24,13 +24,13 @@
     </header>
     <main>
       <section>
-        <div>
-          <img src="../../public/detail/사본 -Screenshot_20221018-161536_Facebook.jpg" alt="">
+        <div class="img">
+          <img class="slider" src='../../../img/스핑크스.jpg' alt="">
         </div>
-        <div>
+        <div class="gg" >
           <img src="../../public/detail/화살표 (2).png" alt="">
         </div>
-        <div>
+        <div class="hh">
           <img src="../../public/detail/화살표 (2).png" alt="">
         </div>
       </section>
@@ -45,6 +45,42 @@
       </article>
     </main>
   </div>
+  <script>
+
+    let count = 0;
+    let imageArray = ['../../../img/istockphoto-508423060-170667a.jpg','../../../img/스핑크스.jpg', '../../../img/img.jpg']
+    let img = document.getElementsByClassName('img')
+    let slider = document.getElementsByClassName('slider')
+    let next = document.getElementsByClassName('gg')
+    let previous = document.getElementsByClassName('hh')
+
+    next[0].addEventListener('click',()=>{
+      count += 700
+
+
+      for(let i = 0; i < imageArray.length; i++){
+        slider[i]= imageArray[i]
+        slider[i].style.transform=`translateX(${count}px)`
+        slider[i].style.trasition="1s";
+    
+      }
+      
+    })
+
+    previous[0].addEventListener('click',()=>{
+      count -= 700
+
+      for(let i = 0; i < imageArray.length; i++){
+        slider[i].src = imageArray[i]
+        slider[i].style.transform=`translateX(${count}px)`
+        slider[i].style.trasition="1s";
+      }
+
+})
+
+    
+
+  </script>
 </body>
 
 </html>
