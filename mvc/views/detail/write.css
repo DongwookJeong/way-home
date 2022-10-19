@@ -5,8 +5,8 @@
 }
 
 #root{
-  width: 100vw;
-  height: 100vh;
+  width: 1920px;
+  height: 1080px;
   background: linear-gradient(270deg, rgba(255, 255, 240, 0) -1.09%, #FFDAB9 71.04%);
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
