@@ -81,5 +81,16 @@
 			</div>
 		</div>
 	</div>
+	<div class="pagecount"></div>
+	<script>
+				
+	function pageCount(n, p) {
+		if(fromFront(n)) {	
+			return (p % 2 === 0) ? (p / 2) : Math.floor(p / 2);	} else {		
+			return (n % 2 === 0) ? Math.floor((n-p+1) / 2) : Math.floor((n-p) / 2);	} 	
+			function fromFront(num) {		return p <= parseInt(num / 2);	}
+	}
+	pageCount()
+	</script>
 </body>
 </html>

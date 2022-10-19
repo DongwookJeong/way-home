@@ -53,23 +53,24 @@
   flex-direction: column;
 }
 /* 반으로 나눈 왼쪽 큰박스 */
-#root>main>section>div:nth-child(1){
+#root>main>section>.img{
   width: 700px;
   height: 800px;
   background-color: gray;
   border-radius: 20px;
   margin-top: 70px;
   margin-bottom: 34px;
+  overflow: hidden;
 }
 /* 이미지 박스 */
-#root>main>section>div:nth-child(1)>img{
+#root>main>section>.img>.slider{
   width: 700px;
   height: 800px;
   border-radius: 20px;
  
 }
 /* 이미지 */
-#root>main>section>div:nth-child(2)>img{
+#root>main>section>.gg>img{
   width: 54px;
   height: 100px;
 
@@ -78,7 +79,7 @@
   left: 850px;
 }
 /* 오른쪽 화살표 */
-#root>main>section>div:nth-child(3)>img{
+#root>main>section>.hh>img{
   width: 54px;
   height:100px;
   transform: rotate(180deg);
