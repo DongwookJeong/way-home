@@ -5,13 +5,7 @@ const mysql = require("mysql")
 const multer = require("multer")
 const bodyParser = require("body-parser")
 const { urlencoded } = require("body-parser")
-const write = mysql.createConnection({
-  host :'localhost',
-  port : "3306",
-  user: 'root',
-  password:'rzo01042218221@',
-  database:'gsiljam'
-}) 
+const db = mysql.createConnection(conn);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
@@ -32,7 +26,7 @@ app.post("/",function(req,res){
   let uniqueness = body.uniqueness;
   let image = body.image;
 
-  write.query(`insert into board(location,breed,gender,age,inNeutering,name,uniqueness,image) values("${location}","${breed}","${gender}","${age}","${inNeutering}","${name}","${uniqueness}","${image}");`,function(err){
+  db.query(`insert into board(location,breed,gender,age,inNeutering,name,uniqueness,image) values("${location}","${breed}","${gender}","${age}","${inNeutering}","${name}","${uniqueness}","${image}");`,function(err){
     if(err){
       console.log(err);
     }

@@ -5,12 +5,7 @@ const mysql = require('mysql');
 const path = require('path')
 const app = express();
 //? DB 연결
-const con = mysql.createConnection({
-  host : 'localhost',
-  user : 'root',
-  password : 'kdt305',
-  database : 'gsiljam'
-})
+const db = mysql.createConnection(conn);
 //? 화면 출력을 위한 body-parser
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended : true}));
@@ -40,7 +35,7 @@ app.post('/idfind', (req, res) => {
   let a = req.body
   const sql = "SELECT * FROM user"
 
-  con.query(sql, (err, row) => {
+  db.query(sql, (err, row) => {
     if(err) throw err;
     let num = row.map((element) => {
       res.writeHead(200, {'Content-Type': 'text/html;charset=UTF-8'});

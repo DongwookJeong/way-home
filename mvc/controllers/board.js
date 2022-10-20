@@ -6,13 +6,7 @@ const multer = require("multer")
 
 const bodyParser = require("body-parser")
 const { urlencoded } = require("body-parser")
-const write = mysql.createConnection({
-  host :'localhost',
-  port : "3306",
-  user: 'root',
-  password:'rzo01042218221@',
-  database:'gsiljam'
-}) 
+const db = mysql.createConnection(conn);
 
 
 
@@ -60,7 +54,7 @@ console.log(req.file)
  let name = body.name;
  let uniqueness = body.uniqueness;
  let image = '/image/' + req.file.filename;
- write.query(`insert into board2(location,breed,gender,age,inNeutering,name,uniqueness,image) values("${location}","${breed}","${gender}","${age}","${inNeutering}","${name}","${uniqueness}","${image}");`,function(err){
+ db.query(`insert into board2(location,breed,gender,age,inNeutering,name,uniqueness,image) values("${location}","${breed}","${gender}","${age}","${inNeutering}","${name}","${uniqueness}","${image}");`,function(err){
    if(err){
      console.log(err);
    }

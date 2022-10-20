@@ -6,12 +6,7 @@ const path = require('path')
 const app = express();
 const nodemailer = require('nodemailer')
 //? DB 연결
-const con = mysql.createConnection({
-  host : 'localhost',
-  user : 'root',
-  password : 'kdt305',
-  database : 'gsiljam'
-})
+const db = mysql.createConnection(conn);
 //? 이메일을 보내기위해 설정하는 공간, service의 경우 이메일을 보내는 사이트, user는 관리자의 이메일, pass는 웹 비밀번호 설정
 //? 웹 비밀번호의 경우 슬랙의 데이터 글창에서 확인
 const transport = nodemailer.createTransport({
@@ -52,7 +47,7 @@ app.post('/pwfind', (req, res) => {
   let pw = req.body;
   const sql = "SELECT * FROM user"
 
-  con.query(sql, (err, row) => {
+  db.query(sql, (err, row) => {
     if(err) throw err;
     let num = row.map((element) => {
       res.writeHead(200, {'Content-Type': 'text/html;charset=UTF-8'});

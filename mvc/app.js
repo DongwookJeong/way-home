@@ -1,8 +1,8 @@
 const express = ('express')
 const app = express()
-const con = require("..key-db/db.js")
+const conn = require("..key-db/db.js")
 const mysql = require('mysql')
-const db = mysql.createConnection(con)
+const db = mysql.createConnection(conn)
 
 const port = 7777;
 

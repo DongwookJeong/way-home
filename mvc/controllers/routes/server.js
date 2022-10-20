@@ -5,12 +5,7 @@ const mysql = require('mysql');
 const path = require('path')
 const app = express();
 //? DB 연결
-const con = mysql.createConnection({
-  host : 'localhost',
-  user : 'root',
-  password : 'kdt305',
-  database : 'gsiljam'
-})
+const db = mysql.createConnection(conn);
 
 //con.connect(function(err){
 //  if(err) throw err;
@@ -57,7 +52,7 @@ app.post('/', (req, res) => {
   let adress = req.body.adress
   let email = req.body.email
   let result = [id, password, name, phone, adress, email]
-  con.query(sql, result, (err, row) => {
+  db.query(sql, result, (err, row) => {
     if(err) throw err
     console.log(row)
     res.send("회원가입 되었습니다.")
