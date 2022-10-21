@@ -1,8 +1,8 @@
-const conn = require("../mysql/database.js")
 const express = require('express');
 const router = express.Router();
+const con = require("../../../key-db/db.js")
 const mysql = require("mysql")
-const db = mysql.createConnection(conn);
+const db = mysql.createConnection(con);
 
 
 

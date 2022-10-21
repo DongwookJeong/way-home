@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const conn = require("../mysql/database.js")
+const con = require("../../../key-db/db.js")
 
 const mysql = require("mysql");
-const db = mysql.createConnection(conn);
+const db = mysql.createConnection(con);
 
 let userID = "";
 
