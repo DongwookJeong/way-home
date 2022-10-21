@@ -2,7 +2,7 @@
 const express = require('express');
 const mysql = require('mysql');
 const nodemailer = require('nodemailer')
-const con = require("../../../key-db/jjw.js")
+const con = require("../../../key-db/db.js")
 const db = mysql.createConnection(con)
 const router = express.Router();
 
