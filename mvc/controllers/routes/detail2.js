@@ -6,11 +6,10 @@ const multer = require("multer")
 
 const bodyParser = require("body-parser")
 const { urlencoded } = require("body-parser")
-<<<<<<<< HEAD:mvc/controllers/routes/board.js
-const db = mysql.createConnection(conn);
-========
+
+
 const write = mysql.createConnection(con)
->>>>>>>> 307aab234807634359942c6bb290cbf11850ca3a:mvc/controllers/routes/detail.js
+
 
 
 
@@ -50,28 +49,24 @@ app.post("/" , uploaders.single('images'), function(req,res){
 
 
 
- let body = req.body;
- let location = body.location;
- let breed = body.breed;
- let gender = body.gender;
- let age = body.age;
- let inNeutering = body.inNeutering;
- let name = body.name;
- let uniqueness = body.uniqueness;
-<<<<<<<< HEAD:mvc/controllers/routes/board.js
- let image = '/image/' + req.file.filename;
- db.query(`insert into board2(location,breed,gender,age,inNeutering,name,uniqueness,image) values("${location}","${breed}","${gender}","${age}","${inNeutering}","${name}","${uniqueness}","${image}");`,function(err){
-========
- let image = '/image/'+ req.file.filename ;
+  let body = req.body;
+  let location = body.location;
+  let breed = body.breed;
+  let gender = body.gender;
+  let age = body.age;
+  let inNeutering = body.inNeutering;
+  let name = body.name;
+  let uniqueness = body.uniqueness;
+  let image = '/image/'+ req.file.filename ;
 
 
- write.query(`insert into board2(location,breed,gender,age,inNeutering,name,uniqueness,image,) values("${location}","${breed}","${gender}","${age}","${inNeutering}","${name}","${uniqueness}","${image}");`,function(err){
->>>>>>>> 307aab234807634359942c6bb290cbf11850ca3a:mvc/controllers/routes/detail.js
-   if(err){
-     console.log(err);
-   }
- })
- res.redirect('/users')
+  write.query(`insert into board2(location,breed,gender,age,inNeutering,name,uniqueness,image,) values("${location}","${breed}","${gender}","${age}","${inNeutering}","${name}","${uniqueness}","${image}");`,function(err){
+
+    if(err){
+      console.log(err);
+    }
+  })
+  res.redirect('/users')
 })
 app.get('/users', (req, res)=>{
     let sql = "select * from board2;"
