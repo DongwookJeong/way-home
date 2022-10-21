@@ -1,7 +1,7 @@
 //? 현재 파일에서 사용중인 모듈들
 const express = require('express');
 const mysql = require('mysql');
-const con = require("../../../key-db/jjw.js")
+const con = require("../../../key-db/db.js")
 const router = express.Router();
 const db = mysql.createConnection(con)
 
