@@ -3,13 +3,10 @@ const app = express()
 const path = require("path")
 const mysql = require("mysql")
 const multer = require("multer")
-
+const conn = require("../../../key-db/db.js") 
 const bodyParser = require("body-parser")
 const { urlencoded } = require("body-parser")
-
-
-const write = mysql.createConnection(con)
-
+const write = mysql.createConnection(conn)
 
 
 
@@ -17,7 +14,6 @@ const imgupload = multer.diskStorage({
   
   destination:(req, file, callback)=>{ 
     console.log(req)
-    const file = req.body.file
     callback(null, "mvc/upload");
   },
   filename:(req, file, callback)=>{
@@ -61,11 +57,10 @@ app.post("/" , uploaders.single('images'), function(req,res){
 
 
   write.query(`insert into board2(location,breed,gender,age,inNeutering,name,uniqueness,image,) values("${location}","${breed}","${gender}","${age}","${inNeutering}","${name}","${uniqueness}","${image}");`,function(err){
-
-    if(err){
-      console.log(err);
-    }
-  })
+  if(err){
+    console.log(err);
+  }
+})
   res.redirect('/users')
 })
 app.get('/users', (req, res)=>{
