@@ -2,7 +2,7 @@
 const express = require('express');
 const mysql = require('mysql');
 const router = express.Router();
-const con = require("../../../key-db/jjw.js")
+const con = require("../../../key-db/db.js")
 const db = mysql.createConnection(con)
 
 /**
