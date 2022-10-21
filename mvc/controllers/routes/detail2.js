@@ -3,10 +3,10 @@ const app = express()
 const path = require("path")
 const mysql = require("mysql")
 const multer = require("multer")
-
+const conn = require("../../../key-db/db.js") 
 const bodyParser = require("body-parser")
 const { urlencoded } = require("body-parser")
-const write = mysql.createConnection(con)
+const write = mysql.createConnection(conn)
 
 
 
@@ -14,7 +14,6 @@ const imgupload = multer.diskStorage({
   
   destination:(req, file, callback)=>{ 
     console.log(req)
-    const file = req.body.file
     callback(null, "mvc/upload");
   },
   filename:(req, file, callback)=>{
@@ -46,23 +45,23 @@ app.post("/" , uploaders.single('images'), function(req,res){
 
 
 
- let body = req.body;
- let location = body.location;
- let breed = body.breed;
- let gender = body.gender;
- let age = body.age;
- let inNeutering = body.inNeutering;
- let name = body.name;
- let uniqueness = body.uniqueness;
- let image = '/image/'+ req.file.filename ;
+  let body = req.body;
+  let location = body.location;
+  let breed = body.breed;
+  let gender = body.gender;
+  let age = body.age;
+  let inNeutering = body.inNeutering;
+  let name = body.name;
+  let uniqueness = body.uniqueness;
+  let image = '/image/'+ req.file.filename ;
 
 
- write.query(`insert into board2(location,breed,gender,age,inNeutering,name,uniqueness,image,) values("${location}","${breed}","${gender}","${age}","${inNeutering}","${name}","${uniqueness}","${image}");`,function(err){
-   if(err){
-     console.log(err);
-   }
- })
- res.redirect('/users')
+  write.query(`insert into board2(location,breed,gender,age,inNeutering,name,uniqueness,image,) values("${location}","${breed}","${gender}","${age}","${inNeutering}","${name}","${uniqueness}","${image}");`,function(err){
+  if(err){
+    console.log(err);
+  }
+})
+  res.redirect('/users')
 })
 app.get('/users', (req, res)=>{
     let sql = "select * from board2;"

@@ -1,4 +1,4 @@
-const conn = require("../mysql/database.js")
+const conn = require("../../../key-db/db.js")
 const express = require('express');
 const router = express.Router();
 const mysql = require("mysql")
