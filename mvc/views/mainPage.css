@@ -6,7 +6,7 @@
 body > #root {
   width: 1920px;
   height: 1080px;
-  background-image: url(MainPage.png);
+  background-image: url(main/MainPage.png);
 }
 
 #root > header{
@@ -21,6 +21,7 @@ body > #root {
   color: white;
   font-size: 48px;
   margin-left: 20px;
+  text-decoration: none;
 }
 
 #root > header > .sign{
