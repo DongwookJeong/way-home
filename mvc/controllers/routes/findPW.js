@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+const express = require('express')
+const router = express.Router();
+
+const findPW = () => {
+return `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -29,6 +33,7 @@
             color: white;
             font-size: 48px;
             margin-left: 20px;
+            text-decoration: none;
         }
 
         #root > header > .sign{
@@ -68,6 +73,16 @@
         }
 
         #root > main > .text-box > .form-box > .text-name{
+            background-color: transparent;
+            border: none;
+            border-bottom: 1px solid #CCC;
+            width: 600px;
+            height: 50px;
+            margin-top: 50px;
+            font-size: 24px;
+        }
+
+        #root > main > .text-box > .form-box > .text-id{
             background-color: transparent;
             border: none;
             border-bottom: 1px solid #CCC;
@@ -120,25 +135,33 @@
 <body>
     <div id="root">
         <header>
-            <div class="logo">Way Home</div>
+            <a href="http://localhost:7777" class="logo">Way Home</a>
             <div class="sign">
-                <a href="" class="sign-in"><div>로그인</div></a>
-                <a href="" class="sign-up"><div>회원가입</div></a>
+                <a href="http://localhost:7777/signin" class="sign-in"><div>로그인</div></a>
+                <a href="http://localhost:7777/signup" class="sign-up"><div>회원가입</div></a>
             </div>
         </header>
         <main>
             <div class="img-box">
-                <img src="9983F3405BAF176612.png" alt="" class="main-img">
+                <img src="find/9983F3405BAF176612.png" alt="" class="main-img">
             </div>
             <div class="text-box">
-                <form action="/idFind" method="post" class="form-box">
+                <form action="/pwFind" method="post" class="form-box">
                     <input type="text" name="name" placeholder="이름" class="text-name">
+                    <input type="text" name="id" placeholder="아이디" class="text-id">
                     <input type="text" name="email" placeholder="이메일 주소" class="text-email">
-                    <input type="submit" value="아이디 찾기" class="sbm">
-                    <a href="/pwFind">비밀번호 찾기 페이지</a>
+                    <input type="submit" value="비밀번호 찾기" class="sbm">
+                    <a href="http://localhost:7777/idfind">아이디 찾기 페이지</a>
                 </form>
             </div>
         </main>
     </div>
 </body>
-</html>
+</html>`
+}
+
+router.get('/', (req, res) => {
+  res.send(findPW())
+})
+
+module.exports = router;

@@ -23,6 +23,7 @@
   color: white;
   font-size: 48px;
   margin-left: 20px;
+  text-decoration: none;
 }
 /** flex-direction의 경우 축과 방향을 지정한다*/
 #root > header > .sign{
